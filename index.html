@@ -41,6 +41,30 @@
             text-align: center;
             margin-bottom: 20px;
         }
+        // 添加响应式样式
+        @media (max-width: 768px) {
+            .calendar {
+                width: 100%;
+                max-width: none;
+            }
+            .calendar th, .calendar td {
+                min-width: auto;
+                padding: 5px 3px;
+                min-height: 60px;
+            }
+            .calendar .day {
+                font-size: 1em;
+            }
+            .calendar .shift {
+                font-size: 0.8em;
+                word-wrap: break-word;
+                white-space: normal;
+            }
+            button {
+                padding: 8px 10px;
+                font-size: 0.9em;
+            }
+        }
         .nav-buttons {
             margin: 10px;
             text-align: center;
