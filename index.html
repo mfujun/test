@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>排班日历</title>
+    <title>夏语溪的排班日历</title>
     <style>
         /* 基础样式 - 移动优先 */
         * {
@@ -173,7 +173,7 @@
         </div>
     </div>
     <table class="calendar" id="calendar-table"></table>
-
+    <div id="current-des" class="header" style="text-align: left;"></div>
     <script>
         // 排班数据
         const schedulingObj = [
@@ -254,21 +254,22 @@
                         const dayDiv = document.createElement('div');
                         dayDiv.className = 'day';
                         dayDiv.textContent = currentDay;
-
-                        // 如果是今天，添加高亮
-                        if (isCurrentMonth && currentDay === today.getDate()) {
-                            cell.classList.add('today');
-                        }
-
                         // 获取排班信息
                         const shift = getScheduling(5, 1, '2025-07-23', dateStr);
                         const shiftDiv = document.createElement('div');
                         shiftDiv.className = 'shift';
                         shiftDiv.textContent = shift.type;
                         shiftDiv.title = shift.describe; 
+                        // 如果是今天，添加高亮
+                        if (isCurrentMonth && currentDay === today.getDate()) {
+                            cell.classList.add('today');
+                            document.getElementById('current-des').textContent = `${dateStr} ${shift.describe}`;
+                        }
+
                         // 添加点击事件显示详情（手机端替代悬停效果）
-                        shiftDiv.addEventListener('click', () => {
-                            alert(`${dateStr}\n${shift.type}\n${shift.describe}`);
+                        cell.addEventListener('click', () => {
+                            // alert(`${dateStr}\n${shift.type}\n${shift.describe}`);
+                             document.getElementById('current-des').textContent = `${dateStr} ${shift.describe}`;
                         });
                         cell.appendChild(dayDiv);
                         cell.appendChild(shiftDiv);
