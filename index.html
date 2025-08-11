@@ -13,10 +13,11 @@
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
+            background-color: #fff5f7; /* 淡粉色背景 */
+            color: #555;
             padding: 10px;
             -webkit-text-size-adjust: 100%;
+            
         }
         .calendar {
             font-family: inherit;
@@ -24,7 +25,7 @@
             border-collapse: separate;
             border-spacing: 0;
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 12px rgba(255, 182, 193, 0.2); /* 粉色阴影 */
             overflow: hidden;
             background-color: white;
         }
@@ -38,7 +39,7 @@
             position: relative;
         }
         .calendar th {
-            background: linear-gradient(135deg, #4a90e2 0%, #5b7bdf 100%);
+            background: linear-gradient(135deg, #ffb6c1 0%, #ff85a2 100%); /* 粉色渐变 */
             color: white;
             font-weight: 600;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -47,23 +48,24 @@
             font-size: 1.2em;
             margin-bottom: 8px;
             font-weight: 600;
-            color: #333;
+            color: #555;
         }
         .calendar .shift {
             font-size: 0.9em;
-            color: #444;
+            color: #555;
             padding: 6px 8px;
             border-radius: 6px;
-            margin-top: 4px;
             display: inline-block;
             min-width: 80px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 1px 3px rgba(255, 182, 193, 0.2); /* 粉色阴影 */
+            background-color: #fff0f3; /* 淡粉色背景 */
         }
         .calendar .today {
-            background-color: #f0f7ff;
+            background-color: #fff0f3; /* 淡粉色高亮 */
+            border-radius: 18px;
         }
         .calendar .today .day {
-            background-color: #4a90e2;
+            background-color: #ff85a2; /* 粉色圆圈 */
             color: white;
             width: 28px;
             height: 28px;
@@ -75,7 +77,8 @@
         .header {
             text-align: center;
             margin: 30px 0 20px;
-            color: #333;
+            color: #ae8181;
+            
         }
         .nav-buttons {
             margin: 15px 5px;
@@ -85,7 +88,7 @@
             padding: 12px 20px;
             margin: 0 4px 8px;
             cursor: pointer;
-            background-color: #4a90e2;
+            background-color: #ff9aa2; /* 粉色按钮 */
             border: none;
             border-radius: 8px;
             color: white;
@@ -94,16 +97,17 @@
             font-size: 15px;
             width: 30%;
             min-width: 100px;
+            box-shadow: 0 2px 5px rgba(255, 182, 193, 0.3); /* 按钮阴影 */
         }
         button:hover, button:active {
-            background-color: #3a7bc8;
+            background-color: #ff7b8c; /* 深粉色按钮 */
             transform: translateY(-1px);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 3px 8px rgba(255, 182, 193, 0.4); /* 按钮悬停阴影 */
         }
         // 添加响应式样式
         @media (max-width: 768px) {
             .calendar th, .calendar td {
-                padding: 6px 2px;
+                padding: 8px 2px;
                 min-height: 60px;
             }
             .calendar .day {
@@ -130,18 +134,16 @@
                 padding: 5px;
             }
             .calendar th, .calendar td {
-                padding: 4px 1px;
+                padding: 8px 1px;
                 min-height: 50px;
             }
             .calendar .day {
                 font-size: 0.9em;
-                width: 24px;
-                height: 24px;
             }
             .calendar .shift {
                 font-size: 0.8em;
                 padding: 3px 5px;
-                min-width: 60px;
+                min-width: 50px;
             }
             button {
                 padding: 10px 15px;
@@ -157,7 +159,7 @@
             text-align: center;
         }
         button {
-            padding: 5px 15px;
+            /* padding: 5px 15px; */
             margin: 0 5px;
             cursor: pointer;
         }
@@ -174,15 +176,35 @@
     </div>
     <table class="calendar" id="calendar-table"></table>
     <div id="current-des" class="header" style="text-align: left;"></div>
+    <div id="current-tips" class="header" style="text-align: left;"></div>
     <script>
         // 排班数据
-        const schedulingObj = [
-            { type: '白一班', describe: '白一班（8:00- 12:00 下午 15:00-17:30）如果是周末8:00- 12:00下午晚上休息' },
-            { type: '白二班', describe: '白二班（8: 00- 12:00 下午晚上休息）' },
-            { type: '付班', describe: '8:00-17:30中午也要在 晚上不用。如果是周末（8:00-5:30 只有一个人处理全部非常累）工作日会多几个人' },
-            { type: '夜班', describe: '上午8:00- 12:00下午回家睡觉。晚上17:30到第二天早上8:00' },
-            { type: '下夜班', describe: '干完就可以回，下午晚上不用来' },
-        ];
+        const schedulingObj = [{
+            type: '白一班',
+            describe: '白一班（8:00- 12:00 下午 15:00-17:30）如果是周末8:00- 12:00下午晚上休息',
+            tips: '风很温柔 花很浪漫 你很特别 我很喜欢'
+        },
+        {
+            type: '白二班',
+            describe: '白二班（8: 00- 12:00 下午晚上休息）',
+            tips: '世界很大 我只想赖在你身边'
+        },
+        {
+            type: '付班',
+            describe: '8:00-17:30中午也要在 晚上不用。如果是周末（8:00-5:30 只有一个人处理全部非常累）工作日会多几个人',
+            tips: '认识有两次幸运就好 一次是遇见你 一次是走到底'
+        },
+        {
+            type: '夜班',
+            describe: '上午8:00- 12:00下午回家睡觉。晚上17:30到第二天早上8:00',
+            tips: '告诉桃花可以开了 我等的人已经来了'
+        },
+        {
+            type: '下夜班',
+            describe: '干完就可以回，下午晚上不用来',
+            tips: '我永远偏向你 就行向日葵永远偏向太阳'
+
+        }];
 
         // 获取当前日期
         function getCurrentDate() {
@@ -264,12 +286,13 @@
                         if (isCurrentMonth && currentDay === today.getDate()) {
                             cell.classList.add('today');
                             document.getElementById('current-des').textContent = `${dateStr} ${shift.describe}`;
+                            document.getElementById('current-tips').textContent = `${shift.tips}`;
                         }
 
                         // 添加点击事件显示详情（手机端替代悬停效果）
                         cell.addEventListener('click', () => {
-                            // alert(`${dateStr}\n${shift.type}\n${shift.describe}`);
-                             document.getElementById('current-des').textContent = `${dateStr} ${shift.describe}`;
+                            document.getElementById('current-des').textContent = `${dateStr} ${shift.describe}`;
+                            document.getElementById('current-tips').textContent = `${shift.tips}`;
                         });
                         cell.appendChild(dayDiv);
                         cell.appendChild(shiftDiv);
