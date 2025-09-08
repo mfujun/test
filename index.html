@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -11,24 +12,29 @@
             margin: 0;
             padding: 0;
         }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fff5f7; /* 淡粉色背景 */
+            background-color: #fff5f7;
+            /* 淡粉色背景 */
             color: #555;
             padding: 10px;
             -webkit-text-size-adjust: 100%;
-            
+
         }
+
         .calendar {
             font-family: inherit;
             width: 100%;
             border-collapse: separate;
             border-spacing: 0;
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(255, 182, 193, 0.2); /* 粉色阴影 */
+            box-shadow: 0 4px 12px rgba(255, 182, 193, 0.2);
+            /* 粉色阴影 */
             overflow: hidden;
             background-color: white;
         }
+
         .calendar th,
         .calendar td {
             border: none;
@@ -38,18 +44,22 @@
             min-height: 70px;
             position: relative;
         }
+
         .calendar th {
-            background: linear-gradient(135deg, #ffb6c1 0%, #ff85a2 100%); /* 粉色渐变 */
+            background: linear-gradient(135deg, #ffb6c1 0%, #ff85a2 100%);
+            /* 粉色渐变 */
             color: white;
             font-weight: 600;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
+
         .calendar .day {
             font-size: 1.2em;
             margin-bottom: 8px;
             font-weight: 600;
             color: #555;
         }
+
         .calendar .shift {
             font-size: 0.9em;
             color: #555;
@@ -57,15 +67,21 @@
             border-radius: 6px;
             display: inline-block;
             min-width: 80px;
-            box-shadow: 0 1px 3px rgba(255, 182, 193, 0.2); /* 粉色阴影 */
-            background-color: #fff0f3; /* 淡粉色背景 */
+            box-shadow: 0 1px 3px rgba(255, 182, 193, 0.2);
+            /* 粉色阴影 */
+            background-color: #fff0f3;
+            /* 淡粉色背景 */
         }
+
         .calendar .today {
-            background-color: #fff0f3; /* 淡粉色高亮 */
+            background-color: #fff0f3;
+            /* 淡粉色高亮 */
             border-radius: 18px;
         }
+
         .calendar .today .day {
-            background-color: #ff85a2; /* 粉色圆圈 */
+            background-color: #ff85a2;
+            /* 粉色圆圈 */
             color: white;
             width: 28px;
             height: 28px;
@@ -74,21 +90,25 @@
             align-items: center;
             justify-content: center;
         }
+
         .header {
             text-align: center;
-            margin: 30px 0 20px;
+            margin: 10px 0 10px;
             color: #ae8181;
-            
+
         }
+
         .nav-buttons {
             margin: 15px 5px;
             text-align: center;
         }
+
         button {
             padding: 12px 20px;
             margin: 0 4px 8px;
             cursor: pointer;
-            background-color: #ff9aa2; /* 粉色按钮 */
+            background-color: #ff9aa2;
+            /* 粉色按钮 */
             border: none;
             border-radius: 8px;
             color: white;
@@ -97,23 +117,33 @@
             font-size: 15px;
             width: 30%;
             min-width: 100px;
-            box-shadow: 0 2px 5px rgba(255, 182, 193, 0.3); /* 按钮阴影 */
+            box-shadow: 0 2px 5px rgba(255, 182, 193, 0.3);
+            /* 按钮阴影 */
         }
-        button:hover, button:active {
-            background-color: #ff7b8c; /* 深粉色按钮 */
+
+        button:hover,
+        button:active {
+            background-color: #ff7b8c;
+            /* 深粉色按钮 */
             transform: translateY(-1px);
-            box-shadow: 0 3px 8px rgba(255, 182, 193, 0.4); /* 按钮悬停阴影 */
+            box-shadow: 0 3px 8px rgba(255, 182, 193, 0.4);
+            /* 按钮悬停阴影 */
         }
+
         // 添加响应式样式
         @media (max-width: 768px) {
-            .calendar th, .calendar td {
+
+            .calendar th,
+            .calendar td {
                 padding: 8px 2px;
                 min-height: 60px;
             }
+
             .calendar .day {
                 font-size: 1em;
                 margin-bottom: 4px;
             }
+
             .calendar .shift {
                 font-size: 0.85em;
                 padding: 4px 6px;
@@ -121,50 +151,240 @@
                 word-wrap: break-word;
                 white-space: normal;
             }
+
             .header {
                 margin: 20px 0 15px;
             }
+
             h1 {
                 font-size: 1.6em;
             }
         }
+
         /* 小屏手机优化 */
         @media (max-width: 480px) {
             body {
                 padding: 5px;
             }
-            .calendar th, .calendar td {
+
+            .calendar th,
+            .calendar td {
                 padding: 8px 1px;
                 min-height: 50px;
             }
+
             .calendar .day {
                 font-size: 0.9em;
             }
+
             .calendar .shift {
                 font-size: 0.8em;
                 padding: 3px 5px;
                 min-width: 50px;
             }
+
             button {
                 padding: 10px 15px;
                 font-size: 14px;
                 width: 28%;
             }
+
             h1 {
                 font-size: 1.4em;
             }
         }
+
         .nav-buttons {
             margin: 10px;
             text-align: center;
         }
+
         button {
             /* padding: 5px 15px; */
             margin: 0 5px;
             cursor: pointer;
         }
+
+        /* 美化输入框样式 */
+        input[type="number"],
+        input[type="text"] {
+            padding: 10px 15px;
+            margin: 10px 0;
+            border: 2px solid #ffccd5;
+            border-radius: 8px;
+            background-color: white;
+            font-size: 15px;
+            color: #555;
+            width: 70%;
+            max-width: 300px;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(255, 182, 193, 0.1);
+        }
+
+        input[type="number"]:focus,
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #ff85a2;
+            box-shadow: 0 2px 8px rgba(255, 133, 162, 0.3);
+            transform: translateY(-1px);
+        }
+
+        input[type="number"]::placeholder,
+        input[type="text"]::placeholder {
+            color: #d8b8b8;
+        }
+        
+        /* 美化Radio按钮样式 */
+        input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+        
+        /* 自定义Radio按钮容器 */
+        .radio-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-left: 28px;
+            margin-right: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-size: 15px;
+            color: #555;
+            user-select: none;
+            transition: all 0.2s ease;
+        }
+        
+        /* 自定义Radio按钮 */
+        .radio-checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background-color: white;
+            border: 2px solid #ffccd5;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        /* 悬停效果 */
+        .radio-container:hover input ~ .radio-checkmark {
+            border-color: #ff85a2;
+            box-shadow: 0 0 0 3px rgba(255, 133, 162, 0.1);
+        }
+        
+        /* 选中效果 */
+        .radio-container input:checked ~ .radio-checkmark {
+            background-color: white;
+            border-color: #ff85a2;
+        }
+        
+        /* 选中后的内部圆点 */
+        .radio-checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+        
+        /* 显示选中后的内部圆点 */
+        .radio-container input:checked ~ .radio-checkmark:after {
+            display: block;
+        }
+        
+        /* 自定义内部圆点样式 */
+        .radio-container .radio-checkmark:after {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff9aa2 0%, #ff7b8c 100%);
+        }
+        
+        /* 响应式调整 - Radio按钮 */
+        @media (max-width: 768px) {
+            .radio-container {
+                padding-left: 24px;
+                font-size: 14px;
+            }
+            
+            .radio-checkmark {
+                height: 18px;
+                width: 18px;
+            }
+            
+            .radio-container .radio-checkmark:after {
+                width: 8px;
+                height: 8px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .radio-container {
+                margin-right: 10px;
+            }
+        }
+        
+        /* 美化标签样式 */
+        label {
+            display: inline-block;
+            width: 260px;
+            font-weight: 500;
+            color: #ae8181;
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        /* 美化生成按钮 */
+        .generate-btn {
+            background: linear-gradient(135deg, #ff9aa2 0%, #ff7b8c 100%);
+            padding: 12px 30px;
+            margin: 0px auto;
+            display: block;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(255, 133, 162, 0.3);
+            width: auto;
+        }
+
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 133, 162, 0.4);
+            background: linear-gradient(135deg, #ff85a2 0%, #ff627d 100%);
+        }
+
+        .generate-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(255, 133, 162, 0.3);
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            label {
+                width: 260px;
+                text-align: left;
+                margin-right: 0;
+            }
+
+            input[type="number"],
+            input[type="text"] {
+                width: 100%;
+            }
+        }
+        #input-box {
+            transition: display 0.5s ease;
+        }
     </style>
 </head>
+
 <body>
     <div class="header">
         <h1 id="current-month"></h1>
@@ -176,10 +396,101 @@
     </div>
     <table class="calendar" id="calendar-table"></table>
     <div id="current-des" class="header" style="text-align: left;"></div>
-    <div id="current-tips" class="header" style="text-align: left;"></div>
+    <div id="current-tips" class="header" style="text-align: left;font-weight: 500;"></div>
+    <div id="input-box">
+         <div>是否有白三班</div>
+        <div style="
+    display: flex;
+    align-items: center;
+    gap: 5px;
+">
+            <label class="radio-container">否
+                <input type="radio" name="num-radio" value="5" />
+                <span class="radio-checkmark"></span>
+            </label>
+            <label class="radio-container">是
+                <input type="radio" name="num-radio" value="6"  />
+                <span class="radio-checkmark"></span>
+            </label>
+            <label class="radio-container" style="visibility: hidden;">7
+                <input type="radio" name="num-radio" value="7" />
+                <span class="radio-checkmark"></span>
+            </label>
+        </div>
+        <div>选择今天是什么班</div>
+        <div style="
+    display: flex;
+    align-items: center;
+    gap: 5px;
+">
+            <label class="radio-container">白一班
+                <input type="radio" name="type-radio" value="白一班" />
+                <span class="radio-checkmark"></span>
+            </label>
+            <label class="radio-container">白二班
+                <input type="radio" name="type-radio" value="白二班" />
+                <span class="radio-checkmark"></span>
+            </label>
+            <label class="radio-container">白三班
+                <input type="radio" name="type-radio" value="白三班"  />
+                <span class="radio-checkmark"></span>
+            </label>
+            
+        </div>
+        <div style="
+    display: flex;
+    align-items: center;
+    gap: 5px;
+">
+            <label class="radio-container">付班
+                <input type="radio" name="type-radio" value="付班" />
+                <span class="radio-checkmark"></span>
+            </label>
+            <label class="radio-container">夜班
+                <input type="radio" name="type-radio" value="夜班" />
+                <span class="radio-checkmark"></span>
+            </label>
+            <label class="radio-container">下夜班
+                <input type="radio" name="type-radio" value="下夜班" />
+                <span class="radio-checkmark"></span>
+            </label>
+        </div>
+        <div><button id="generate-btn" class="generate-btn">重新生成排班</button></div>
+    </div>
     <script>
         // 排班数据
-        const schedulingObj = [{
+        const schedulingObj6 = [{
+            type: '白一班',
+            describe: '白一班（8:00- 12:00 下午 15:00-17:30）如果是周末8:00- 12:00下午晚上休息',
+            tips: '风很温柔 花很浪漫 你很特别 我很喜欢'
+        },
+        {
+            type: '白二班',
+            describe: '白二班（8: 00- 12:00 下午晚上休息）',
+            tips: '世界很大 我只想赖在你身边'
+        },
+        {
+            type: '白三班',
+            describe: '#####白三班#####',
+            tips: '我们意念合一'
+        },
+        {
+            type: '付班',
+            describe: '8:00-17:30中午也要在 晚上不用。如果是周末（8:00-5:30 只有一个人处理全部非常累）工作日会多几个人',
+            tips: '认识有两次幸运就好 一次是遇见你 一次是走到底'
+        },
+        {
+            type: '夜班',
+            describe: '上午8:00- 12:00下午回家睡觉。晚上17:30到第二天早上8:00',
+            tips: '告诉桃花可以开了 我等的人已经来了'
+        },
+        {
+            type: '下夜班',
+            describe: '干完就可以回，下午晚上不用来',
+            tips: '我永远偏向你 就行向日葵永远偏向太阳'
+
+        }];
+        const schedulingObj5 = [{
             type: '白一班',
             describe: '白一班（8:00- 12:00 下午 15:00-17:30）如果是周末8:00- 12:00下午晚上休息',
             tips: '风很温柔 花很浪漫 你很特别 我很喜欢'
@@ -214,16 +525,21 @@
             const day = String(date.getDate()).padStart(2, '0');
             return `${year}-${month}-${day}`;
         }
-
         // 获取排班信息
-        function getScheduling(num = 5, index = 1, day = '2025-07-23', nowDay) {
+        function getScheduling(num = 6, type = '白三班', day = '2025-09-08', nowDay) {
+            let numValue = document.querySelector('input[name="num-radio"]:checked')?.value || 6;
+            let typeValue = document.querySelector('input[name="type-radio"]:checked')?.value || '白三班';
+            num = numValue == 5 ? schedulingObj5.length : schedulingObj6.length;
+            let obj = numValue == 5 ? schedulingObj5 : schedulingObj6;
+            day = getCurrentDate();
+            let index = obj.findIndex(item => item.type === typeValue) + 1;
             const time1 = new Date(day).getTime();
             const time2 = new Date(nowDay).getTime();
             const spaceDday = Math.floor((time2 - time1) / 1000 / 60 / 60 / 24);
             let currentIndex = (spaceDday % num + index - 1) % num;
             // 确保索引为正数
             if (currentIndex < 0) currentIndex += num;
-            return schedulingObj[currentIndex];
+            return obj[currentIndex];
         }
 
         // 生成日历
@@ -277,11 +593,11 @@
                         dayDiv.className = 'day';
                         dayDiv.textContent = currentDay;
                         // 获取排班信息
-                        const shift = getScheduling(5, 1, '2025-07-23', dateStr);
+                        const shift = getScheduling(6, '白三班', '2025-09-08', dateStr);
                         const shiftDiv = document.createElement('div');
                         shiftDiv.className = 'shift';
                         shiftDiv.textContent = shift.type;
-                        shiftDiv.title = shift.describe; 
+                        shiftDiv.title = shift.describe;
                         // 如果是今天，添加高亮
                         if (isCurrentMonth && currentDay === today.getDate()) {
                             cell.classList.add('today');
@@ -334,6 +650,26 @@
             currentDate = new Date();
             generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
         });
+
+        // 为生成按钮添加点击事件（如果需要实现功能）
+        document.getElementById('generate-btn').addEventListener('click', () => {
+            currentDate = new Date();
+            generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
+            document.getElementById('input-box').style.display = 'none';
+        });
+        // document.getElementById('current-des').addEventListener('click', () => {
+        //    alert(1)
+        // });
+        document.getElementById('current-tips').addEventListener('click', () => {
+            let sty = document.getElementById('input-box').style.display
+            if (sty != 'none') {
+                document.getElementById('input-box').style.display = 'none';
+            } else {
+                document.getElementById('input-box').style.display = 'block';
+            }
+        });
+        document.getElementById('input-box').style.display = 'none';
     </script>
 </body>
+
 </html>
