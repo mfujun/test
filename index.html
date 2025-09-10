@@ -233,7 +233,7 @@
         input[type="text"]::placeholder {
             color: #d8b8b8;
         }
-        
+
         /* 美化Radio按钮样式 */
         input[type="radio"] {
             position: absolute;
@@ -242,7 +242,7 @@
             height: 0;
             width: 0;
         }
-        
+
         /* 自定义Radio按钮容器 */
         .radio-container {
             display: flex;
@@ -257,7 +257,7 @@
             user-select: none;
             transition: all 0.2s ease;
         }
-        
+
         /* 自定义Radio按钮 */
         .radio-checkmark {
             position: absolute;
@@ -270,31 +270,31 @@
             border-radius: 50%;
             transition: all 0.3s ease;
         }
-        
+
         /* 悬停效果 */
-        .radio-container:hover input ~ .radio-checkmark {
+        .radio-container:hover input~.radio-checkmark {
             border-color: #ff85a2;
             box-shadow: 0 0 0 3px rgba(255, 133, 162, 0.1);
         }
-        
+
         /* 选中效果 */
-        .radio-container input:checked ~ .radio-checkmark {
+        .radio-container input:checked~.radio-checkmark {
             background-color: white;
             border-color: #ff85a2;
         }
-        
+
         /* 选中后的内部圆点 */
         .radio-checkmark:after {
             content: "";
             position: absolute;
             display: none;
         }
-        
+
         /* 显示选中后的内部圆点 */
-        .radio-container input:checked ~ .radio-checkmark:after {
+        .radio-container input:checked~.radio-checkmark:after {
             display: block;
         }
-        
+
         /* 自定义内部圆点样式 */
         .radio-container .radio-checkmark:after {
             top: 50%;
@@ -305,31 +305,31 @@
             border-radius: 50%;
             background: linear-gradient(135deg, #ff9aa2 0%, #ff7b8c 100%);
         }
-        
+
         /* 响应式调整 - Radio按钮 */
         @media (max-width: 768px) {
             .radio-container {
                 padding-left: 24px;
                 font-size: 14px;
             }
-            
+
             .radio-checkmark {
                 height: 18px;
                 width: 18px;
             }
-            
+
             .radio-container .radio-checkmark:after {
                 width: 8px;
                 height: 8px;
             }
         }
-        
+
         @media (max-width: 480px) {
             .radio-container {
                 margin-right: 10px;
             }
         }
-        
+
         /* 美化标签样式 */
         label {
             display: inline-block;
@@ -379,8 +379,177 @@
                 width: 100%;
             }
         }
+
         #input-box {
             transition: display 0.5s ease;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            /* backdrop-filter: blur(3px); */
+            /* animation: fadeIn 0.3s ease-in-out; */
+        }
+
+        .popup-content {
+            background-color: white;
+            margin: 0 auto;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 20px;
+            border-radius: 12px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 8px 32px rgba(255, 182, 193, 0.3);
+            /* animation: slideIn 0.3s ease-out; */
+            position: relative;
+        }
+
+        .popup-close {
+            color: #ff85a2;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s ease;
+            position: absolute;
+            right: 12px;
+            top: 0px;
+        }
+
+        .popup-close:hover {
+            color: #ff5d7b;
+        }
+
+        .popup-text {
+            text-align: center;
+            font-size: 18px;
+            color: #555;
+            padding: 20px 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        /* 自定义Checkbox容器 */
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-left: 28px;
+            margin-right: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-size: 15px;
+            color: #555;
+            user-select: none;
+            transition: all 0.2s ease;
+        }
+
+        /* 自定义Checkbox */
+        .checkbox-checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background-color: white;
+            border: 2px solid #ffccd5;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        /* 悬停效果 */
+        .checkbox-container:hover input~.checkbox-checkmark {
+            border-color: #ff85a2;
+            box-shadow: 0 0 0 3px rgba(255, 133, 162, 0.1);
+        }
+
+        /* 选中效果 */
+        .checkbox-container input:checked~.checkbox-checkmark {
+            background-color: #ff85a2;
+            border-color: #ff85a2;
+        }
+
+        /* 选中后的对勾 */
+        .checkbox-checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
+        }
+
+        /* 显示选中后的对勾 */
+        .checkbox-container input:checked~.checkbox-checkmark:after {
+            display: block;
+        }
+
+        /* 响应式调整 - Checkbox */
+        @media (max-width: 768px) {
+            .checkbox-container {
+                padding-left: 24px;
+                font-size: 14px;
+            }
+
+            .checkbox-checkmark {
+                height: 18px;
+                width: 18px;
+            }
+
+            .checkbox-checkmark:after {
+                left: 5px;
+                top: 1px;
+                width: 4px;
+                height: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .checkbox-container {
+                margin-right: 10px;
+            }
         }
     </style>
 </head>
@@ -397,65 +566,75 @@
     <table class="calendar" id="calendar-table"></table>
     <div id="current-des" class="header" style="text-align: left;"></div>
     <div id="current-tips" class="header" style="text-align: left;font-weight: 500;"></div>
-    <div id="input-box">
-         <div>是否有白三班</div>
-        <div style="
-    display: flex;
-    align-items: center;
-    gap: 5px;
-">
-            <label class="radio-container">否
-                <input type="radio" name="num-radio" value="5" />
-                <span class="radio-checkmark"></span>
-            </label>
-            <label class="radio-container">是
-                <input type="radio" name="num-radio" value="6"  />
-                <span class="radio-checkmark"></span>
-            </label>
-            <label class="radio-container" style="visibility: hidden;">7
-                <input type="radio" name="num-radio" value="7" />
-                <span class="radio-checkmark"></span>
-            </label>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="popup-close">&times;</span>
+            <div id="input-box">
+                <div style="margin-bottom: 4px;">选择全部班次</div>
+                <div style="display: flex;align-items: center;gap: 5px;">
+                    <label class="checkbox-container">白一班
+                        <input type="checkbox" name="type-radio" value="白一班" checked/>
+                        <span class="checkbox-checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">白二班
+                        <input type="checkbox" name="type-radio" value="白二班" checked/>
+                        <span class="checkbox-checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">白三班
+                        <input type="checkbox" name="type-radio" value="白三班" checked/>
+                        <span class="checkbox-checkmark"></span>
+                    </label>
+                </div>
+                <div style="display: flex;align-items: center;gap: 5px;">
+                    <label class="checkbox-container">付班
+                        <input type="checkbox" name="type-radio" value="付班" checked/>
+                        <span class="checkbox-checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">夜班
+                        <input type="checkbox" name="type-radio" value="夜班" checked/>
+                        <span class="checkbox-checkmark"></span>
+                    </label>
+                    <label class="checkbox-container">下夜班
+                        <input type="checkbox" name="type-radio" value="下夜班" checked/>
+                        <span class="checkbox-checkmark"></span>
+                    </label>
+                </div>
+            </div>
+            <div>
+                <div style="margin-bottom: 4px;">选择今天的班次</div>
+                <div style="display: flex;align-items: center;gap: 5px;">
+                    <label class="radio-container">白一班
+                        <input type="radio" name="num-radio" value="白一班"  />
+                        <span class="radio-checkmark"></span>
+                    </label>
+                    <label class="radio-container">白二班
+                        <input type="radio" name="num-radio" value="白二班"  />
+                        <span class="radio-checkmark"></span>
+                    </label>
+                    <label class="radio-container">白三班
+                        <input type="radio" name="num-radio" value="白三班" />
+                        <span class="radio-checkmark"></span>
+                    </label>
+                </div>
+                <div style="display: flex;align-items: center;gap: 5px;">
+                    <label class="radio-container">付班
+                        <input type="radio" name="num-radio" value="付班"  />
+                        <span class="radio-checkmark"></span>
+                    </label>
+                    <label class="radio-container">夜班
+                        <input type="radio" name="num-radio" value="夜班" />
+                        <span class="radio-checkmark"></span>
+                    </label>
+                    <label class="radio-container">下夜班
+                        <input type="radio" name="num-radio" value="下夜班"  />
+                        <span class="radio-checkmark"></span>
+                    </label>
+                </div>
+            </div>
+            <div><button id="generate-btn" class="generate-btn">重新生成排班</button></div>
         </div>
-        <div>选择今天是什么班</div>
-        <div style="
-    display: flex;
-    align-items: center;
-    gap: 5px;
-">
-            <label class="radio-container">白一班
-                <input type="radio" name="type-radio" value="白一班" />
-                <span class="radio-checkmark"></span>
-            </label>
-            <label class="radio-container">白二班
-                <input type="radio" name="type-radio" value="白二班" />
-                <span class="radio-checkmark"></span>
-            </label>
-            <label class="radio-container">白三班
-                <input type="radio" name="type-radio" value="白三班"  />
-                <span class="radio-checkmark"></span>
-            </label>
-            
-        </div>
-        <div style="
-    display: flex;
-    align-items: center;
-    gap: 5px;
-">
-            <label class="radio-container">付班
-                <input type="radio" name="type-radio" value="付班" />
-                <span class="radio-checkmark"></span>
-            </label>
-            <label class="radio-container">夜班
-                <input type="radio" name="type-radio" value="夜班" />
-                <span class="radio-checkmark"></span>
-            </label>
-            <label class="radio-container">下夜班
-                <input type="radio" name="type-radio" value="下夜班" />
-                <span class="radio-checkmark"></span>
-            </label>
-        </div>
-        <div><button id="generate-btn" class="generate-btn">重新生成排班</button></div>
+    </div>
     </div>
     <script>
         // 排班数据
@@ -471,52 +650,33 @@
         },
         {
             type: '白三班',
-            describe: '#####白三班#####',
+            describe: '白三班据说和白二班一样',
             tips: '我们意念合一'
         },
         {
             type: '付班',
-            describe: '8:00-17:30中午也要在 晚上不用。如果是周末（8:00-5:30 只有一个人处理全部非常累）工作日会多几个人',
+            describe: '付班 8:00-17:30中午也要在 晚上不用。如果是周末（8:00-5:30 只有一个人处理全部非常累）工作日会多几个人',
             tips: '认识有两次幸运就好 一次是遇见你 一次是走到底'
         },
         {
             type: '夜班',
-            describe: '上午8:00- 12:00下午回家睡觉。晚上17:30到第二天早上8:00',
+            describe: '夜班 上午8:00- 12:00下午回家睡觉。晚上17:30到第二天早上8:00',
             tips: '告诉桃花可以开了 我等的人已经来了'
         },
         {
             type: '下夜班',
-            describe: '干完就可以回，下午晚上不用来',
+            describe: '下夜班 干完就可以回，下午晚上不用来',
             tips: '我永远偏向你 就行向日葵永远偏向太阳'
 
         }];
-        const schedulingObj5 = [{
-            type: '白一班',
-            describe: '白一班（8:00- 12:00 下午 15:00-17:30）如果是周末8:00- 12:00下午晚上休息',
-            tips: '风很温柔 花很浪漫 你很特别 我很喜欢'
-        },
-        {
-            type: '白二班',
-            describe: '白二班（8: 00- 12:00 下午晚上休息）',
-            tips: '世界很大 我只想赖在你身边'
-        },
-        {
-            type: '付班',
-            describe: '8:00-17:30中午也要在 晚上不用。如果是周末（8:00-5:30 只有一个人处理全部非常累）工作日会多几个人',
-            tips: '认识有两次幸运就好 一次是遇见你 一次是走到底'
-        },
-        {
-            type: '夜班',
-            describe: '上午8:00- 12:00下午回家睡觉。晚上17:30到第二天早上8:00',
-            tips: '告诉桃花可以开了 我等的人已经来了'
-        },
-        {
-            type: '下夜班',
-            describe: '干完就可以回，下午晚上不用来',
-            tips: '我永远偏向你 就行向日葵永远偏向太阳'
-
-        }];
-
+        let resultObj = []
+        let selectedTodayShift = document.querySelector('input[name="num-radio"]:checked')?.value;
+        // 获取多选值（全部班次）
+        let selectedAllShifts = Array.from(document.querySelectorAll('input[name="type-radio"]:checked')).map(checkbox => checkbox.value);
+        selectedAllShifts.forEach(item => {
+            let a = schedulingObj6.find(shift => shift.type == item)
+            resultObj.push(a)
+        })
         // 获取当前日期
         function getCurrentDate() {
             const date = new Date();
@@ -527,19 +687,17 @@
         }
         // 获取排班信息
         function getScheduling(num = 6, type = '白三班', day = '2025-09-08', nowDay) {
-            let numValue = document.querySelector('input[name="num-radio"]:checked')?.value || 6;
-            let typeValue = document.querySelector('input[name="type-radio"]:checked')?.value || '白三班';
-            num = numValue == 5 ? schedulingObj5.length : schedulingObj6.length;
-            let obj = numValue == 5 ? schedulingObj5 : schedulingObj6;
-            day = getCurrentDate();
-            let index = obj.findIndex(item => item.type === typeValue) + 1;
+            num = resultObj.length
+            day = resultObj.length == 5 ? '2025-09-08' : '2025-09-08'
+            type = resultObj.length == 5 ? '付班' : '白三班'
+            let index = resultObj.findIndex(item => item.type === type) + 1;
             const time1 = new Date(day).getTime();
             const time2 = new Date(nowDay).getTime();
             const spaceDday = Math.floor((time2 - time1) / 1000 / 60 / 60 / 24);
             let currentIndex = (spaceDday % num + index - 1) % num;
             // 确保索引为正数
             if (currentIndex < 0) currentIndex += num;
-            return obj[currentIndex];
+            return resultObj[currentIndex];
         }
 
         // 生成日历
@@ -654,21 +812,113 @@
         // 为生成按钮添加点击事件（如果需要实现功能）
         document.getElementById('generate-btn').addEventListener('click', () => {
             currentDate = new Date();
+            resultObj = []
+             selectedTodayShift = document.querySelector('input[name="num-radio"]:checked')?.value;
+            // 获取多选值（全部班次）
+             selectedAllShifts = Array.from(document.querySelectorAll('input[name="type-radio"]:checked')).map(checkbox => checkbox.value);
+            selectedAllShifts.forEach(item => {
+                let a = schedulingObj6.find(shift => shift.type == item)
+                resultObj.push(a)
+            })
             generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
-            document.getElementById('input-box').style.display = 'none';
+            document.getElementById('popup').style.display = 'none';
         });
         // document.getElementById('current-des').addEventListener('click', () => {
         //    alert(1)
         // });
         document.getElementById('current-tips').addEventListener('click', () => {
-            let sty = document.getElementById('input-box').style.display
-            if (sty != 'none') {
-                document.getElementById('input-box').style.display = 'none';
-            } else {
-                document.getElementById('input-box').style.display = 'block';
+            document.getElementById('popup').style.display = 'block';
+        });
+
+        // 关闭弹窗
+        document.getElementsByClassName('popup-close')[0].addEventListener('click', () => {
+            document.getElementById('popup').style.display = 'none';
+        });
+
+        // 点击弹窗外部关闭弹窗
+        window.addEventListener('click', (event) => {
+            if (event.target === document.getElementById('popup')) {
+                document.getElementById('popup').style.display = 'none';
             }
         });
-        document.getElementById('input-box').style.display = 'none';
+         window.addEventListener('click', (event) => {
+            if (event.target === document.getElementById('popup')) {
+                document.getElementById('popup').style.display = 'none';
+            }
+        });
+        
+        // 添加背景爱心动画
+        function createHeartAnimation() {
+            // 创建爱心容器
+            const heartContainer = document.createElement('div');
+            heartContainer.id = 'heart-container';
+            document.body.appendChild(heartContainer);
+            
+            // 动态添加爱心样式
+            const style = document.createElement('style');
+            style.textContent = `
+                #heart-container {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    pointer-events: none;
+                    z-index: 100;
+                    overflow: hidden;
+                }
+                
+                .heart {
+                    position: absolute;
+                    color: #ff85a2;
+                    font-size: 20px;
+                    opacity: 0;
+                    bottom: 0;
+                    animation: floatUp 3s ease-in forwards;
+                }
+                
+                @keyframes floatUp {
+                    0% {
+                        transform: translateY(0vh) rotate(0deg);
+                        opacity: 0.7;
+                    }
+                    100% {
+                        transform: translateY(-120vh) rotate(360deg);
+                        opacity: 0.1;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // 创建随机爱心
+            function createHeart() {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤';
+                
+                // 随机位置和动画延迟
+                const size = Math.random() * 20 + 10;
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.fontSize = size + 'px';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+                heart.style.opacity = Math.random() * 0.5 + 0.3;
+                heart.style.color = `rgba(255, 133, 162, ${Math.random() * 0.5 + 0.5})`;
+                
+                document.getElementById('heart-container').appendChild(heart);
+                
+                // 动画结束后移除元素
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }
+            
+            // 定期创建爱心
+            setInterval(createHeart, 100);
+        }
+        
+        // 页面加载完成后启动爱心动画
+        window.addEventListener('load', createHeartAnimation);
     </script>
 </body>
 
