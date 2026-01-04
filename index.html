@@ -686,7 +686,7 @@
             return `${year}-${month}-${day}`;
         }
         // 获取排班信息
-        function getScheduling(num = 6, type = '白三班', day = '2025-11-09', nowDay) {
+        function getScheduling(num = 6, type = '白一班', day = '2026-01-04', nowDay) {
             num = resultObj.length
             // day = resultObj.length == 5 ? '2025-09-08' : '2025-09-08'
             // type = resultObj.length == 5 ? '付班' : '白三班'
@@ -751,7 +751,7 @@
                         dayDiv.className = 'day';
                         dayDiv.textContent = currentDay;
                         // 获取排班信息
-                        const shift = getScheduling(6, '白三班', '2025-11-09', dateStr);
+                        const shift = getScheduling(6, '白一班', '2026-01-04', dateStr);
                         const shiftDiv = document.createElement('div');
                         shiftDiv.className = 'shift';
                         shiftDiv.textContent = shift.type;
